@@ -8,9 +8,7 @@ const MovingTextSection = () => {
                     <span>Lorem ipsum</span>
                     <span>Lorem ipsum</span>
                     <span>Lorem ipsum</span>
-                    <span>Lorem ipsum</span>
-                    <span>Lorem ipsum</span>
-                    <span>Lorem ipsum</span>
+
                 </div>
                 <div className="second">
                     <span>Lorem ipsum</span>
@@ -18,9 +16,7 @@ const MovingTextSection = () => {
                     <span>Lorem ipsum</span>
                     <span>Lorem ipsum</span>
                     <span>Lorem ipsum</span>
-                    <span>Lorem ipsum</span>
-                    <span>Lorem ipsum</span>
-                    <span>Lorem ipsum</span>
+
                 </div>
             </div>
         </div>
