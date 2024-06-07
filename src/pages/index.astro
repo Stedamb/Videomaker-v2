@@ -1,0 +1,42 @@
+---
+import Loader from "../components/Loader";
+import Navbar from "../components/Navbar";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Homepage from "../components/Homepage";
+
+import Cursor from "../components/Cursor";
+
+import '../styles/index.css';
+
+// import { Image } from "astro:assets";
+// import header from "../assets/unsplash.jpg";
+---
+
+<html lang="it">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- <link rel="stylesheet" href="/src/styles/index.css" /> -->
+	</head>
+	<body>
+		<Cursor client:only />
+		<Loader client:visible />
+		<nav class="hide">
+			<Navbar client:visible />
+		</nav>
+		<header class="hide">
+			<Header client:visible>
+
+			</Header>
+		</header>
+		<main class="hide">
+			<Homepage client:visible />
+		</main>
+		<footer class="hide"><Footer client:visible /></footer>
+		<script src="../scripts/loader.tsx">
+		</script>
+	</body>
+</html>
