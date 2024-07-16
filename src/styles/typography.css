@@ -25,6 +25,14 @@
     font-display: swap;
 }
 
+.font-primary {
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.font-secondary {
+    font-family: 'Times New Roman MT', sans-serif;
+}
+
 body {
     font-family: 'Helvetica Neue';
     font-weight: 400;
@@ -54,15 +62,15 @@ h3 {
 }
 
 h4 {
-    font-size: 1.777rem !important;
+    font-size: 1.5rem !important;
 }
 
 h5 {
-    font-size: 1.55rem !important;
+    font-size: 1.25rem !important;
 }
 
 h6 {
-    font-size: 1.333rem !important;
+    font-size: 1rem !important;
 }
 
 small {
@@ -73,14 +81,30 @@ a {
     text-decoration: inherit;
 }
 
-a:hover {
-    color: var(--accent);
+a.Link {
+    text-shadow: 
+    0 0 0 #0c2ffb, 
+    0 0 0 #2cfcfd, 
+    0 0 0 #fb203b, 
+    0 0 0 #fefc4b;
+    transition: text-shadow .3s ease;
+
+    .Arrow {
+        margin: 0;
+        transition: margin .3s ease;
+    }
 }
 
-.font-primary {
-    font-family: 'Poppins', sans-serif;
-}
+a.Link:hover {
+    text-shadow: 
+    0 1em 0 #0c2ffb, 
+    0 2em 0 #2cfcfd, 
+    0 -1em 0 #fb203b, 
+    0 -2em 0 #fefc4b;
 
-.font-secondary {
-    font-family: 'Space Grotesk', sans-serif;
+    .Arrow {
+        margin-right: -1rem;
+        margin-left: 1rem;
+    }
+
 }

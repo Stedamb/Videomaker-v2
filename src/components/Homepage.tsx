@@ -1,14 +1,21 @@
-import MovingTextSection from "./sections/MovingTextSection";
-import GridSection from "./sections/GridSection";
+import ContentSection from "./sections/ContentSection";
+import NavSection from "./sections/NavSection";
 
 const Homepage = () => {
-    return (
-        <div className="container-lg">
-            <MovingTextSection></MovingTextSection>
-            <GridSection></GridSection>
-        </div>
+  const videoSources = ["/supernova.mp4", "/supernova.mp4", "/supernova.mp4"];
 
-    );
+  return (
+    <div>
+      {videoSources.map((source, index) => (
+        <ContentSection
+          key={index}
+          isRight={index % 2 !== 0}
+          videoSrc={source}
+        />
+      ))}
+      <NavSection />
+    </div>
+  );
 };
 
 export default Homepage;

@@ -1,12 +1,18 @@
 const Footer = () => {
-    return (
-      <div className="w-100 text-center p-4 mt-96 mb-96">
-        <h3>
-          FOOTER
-        </h3>
-      </div>
-    );
-  };
-  
-  export default Footer;
-  
+  const currentYear = new Date().getFullYear();
+  return (
+    <div className="w-100 flex justify-between  p-4">
+      <h5>
+        Vladimir Bertozzi
+      </h5>
+      <h5>
+        Copyright © {currentYear} 
+      </h5>
+      <h5>
+        Site design by SD
+      </h5>
+    </div>
+  );
+};
+
+export default Footer;

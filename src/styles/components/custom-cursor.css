@@ -1,7 +1,3 @@
-* {
-    cursor: none;
-}
-
 .cursor-dot,
 .cursor-dot-outline {
     pointer-events: none;
@@ -19,8 +15,8 @@
 }
 
 .cursor-dot {
-    width: 8px;
-    height: 8px;
+    width: 4px;
+    height: 4px;
     background-color: var(--text);
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, border 0.1s linear;
 
@@ -49,10 +45,10 @@
 
 .cursor-dot-outline {
     background-color: transparent;
-    border: 2px solid var(--text);
-    height: 40px;
+    border: 1px solid var(--text);
+    height: 20px;
     transition: opacity 0.3s ease-in-out, transform 0.05s ease-in-out, background-color 0.3s ease-in-out;
-    width: 40px;
+    width: 20px;
 
     &.clicking {
         transform: translate(-50%, -50%) scale(0.5, 0.5);
@@ -63,6 +59,6 @@
         border: 2px solid var(--shadow);
         transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
         opacity: .9;
-        transform: translate(-50%, -50%) scale(1.5, 1.5);
+        transform: translate(-50%, -50%) scale(2.5, 2.5);
     }
 }

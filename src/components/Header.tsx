@@ -1,3 +1,5 @@
+import MovingTextSection from "./sections/MovingTextSection";
+
 import {useState, useRef} from "react";
 
 const Header = () => {
@@ -17,16 +19,19 @@ const Header = () => {
     };
 
     return (
-        <div className="hero lazyload p-4">
-            <video ref={vidRef}
-                className="w-100 cursor-hover play-pause"
-                autoPlay
-                muted
-                loop
-                onClick={handleVideoClick}>
-                <source src="/supernova.mp4" type="video/mp4"/>
-                Sorry, your browser doesn't support videos.
-            </video>
+        <div>
+            <div className="container-min h-[80vh] lazyload">
+                <video ref={vidRef}
+                    className="cursor-hover play-pause"
+                    autoPlay
+                    muted
+                    loop
+                    onClick={handleVideoClick}>
+                    <source src="/supernova.mp4" type="video/mp4"/>
+                    Sorry, your browser doesn't support videos.
+                </video>
+            </div>
+            <MovingTextSection></MovingTextSection>
         </div>
     );
 };

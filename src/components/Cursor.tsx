@@ -7,7 +7,7 @@ const Cursor = () => {
     const cursorVisible = useRef(true);
     const cursorEnlarged = useRef(false);
     const cursorClicking = useRef(false);
-    const isVideoPlaying = useRef(false);
+    const isVideoPlaying = useRef(true);
     const endX = useRef(window.innerWidth / 2);
     const endY = useRef(window.innerHeight / 2);
     const _x = useRef(0);
@@ -18,7 +18,7 @@ const Cursor = () => {
         document.addEventListener('mousedown', toggleClick);
         document.addEventListener('mouseup', toggleClick);
         window.addEventListener('mousemove', mouseMoveEvent);
-        // window.addEventListener('scroll', updateCursorPosition);
+        window.addEventListener('scroll', updateCursorPosition);
         document.addEventListener('mouseenter', mouseEnterEvent);
         document.addEventListener('mouseleave', mouseLeaveEvent);
         animateDotOutline();
