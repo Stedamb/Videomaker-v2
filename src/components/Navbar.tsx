@@ -4,7 +4,7 @@ const Navbar = () => {
         <h5><a className="Link-Alt" href="/">Vladimir Bertozzi</a></h5>
         <div className="flex gap-8">
             <h5><a className="Link-Alt" href="/portfolio">Work</a></h5>
-            <h5><a className="Link-Alt" href="/contact">Info</a></h5>
+            <h5><a className="Link-Alt" href="/info">Info</a></h5>
         </div>
       </div>
     );

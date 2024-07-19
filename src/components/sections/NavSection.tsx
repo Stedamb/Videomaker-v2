@@ -15,7 +15,7 @@ const NavSection = () => {
                 </div>
                 <div className="Staggered relative flex flex-col flex-grow lg:w-1/2 p-4 lg:p-8 bg-background border border-text">
                     <h4 className="">Contattami</h4>
-                    <a className="Link inline-flex items-center justify-center p-0.5 ml-auto" href="/contact">
+                    <a className="Link inline-flex items-center justify-center p-0.5 ml-auto" href="/info">
                         <span className="p-2">
                             Contatti
                         </span>
