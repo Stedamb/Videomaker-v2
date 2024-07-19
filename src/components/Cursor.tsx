@@ -6,8 +6,9 @@ const Cursor = () => {
     const dotOutline = useRef < HTMLDivElement | null > (null);
     const cursorVisible = useRef(true);
     const cursorEnlarged = useRef(false);
+    const cursorFullscreen = useRef(false);
     const cursorClicking = useRef(false);
-    const isVideoPlaying = useRef(true);
+    const isVideoPlaying = useRef(false);
     const endX = useRef(window.innerWidth / 2);
     const endY = useRef(window.innerHeight / 2);
     const _x = useRef(0);
@@ -25,11 +26,15 @@ const Cursor = () => {
 
         const hoverElements = document.querySelectorAll('.cursor-hover');
         hoverElements.forEach((e) => {
+            if (e.classList.contains('play-pause')) {
             e.addEventListener('mouseover', mouseOverEvent);
             e.addEventListener('mouseout', mouseOutEvent);
-            if (e.classList.contains('play-pause')) {
                 togglePlayPause();
                 e.addEventListener('click', togglePlayPause);
+            }
+            if (e.classList.contains('cursor-fullscreen')) {
+                e.addEventListener('mouseover', mouseOverFullscreenEvent);
+                e.addEventListener('mouseout', mouseOutFullscreenEvent);
             }
         });
 
@@ -77,6 +82,16 @@ const Cursor = () => {
         }
     };
 
+    const toggleFullscreen = () => {
+        if (dot.current) {
+            if (cursorFullscreen.current) {
+                dot.current.classList.add("fullscreen");
+            } else {
+                dot.current.classList.remove("fullscreen");
+            }
+        }
+    };
+
     const togglePlayPause = () => {
         if (dot.current) {
             if (isVideoPlaying.current) {
@@ -111,6 +126,16 @@ const Cursor = () => {
     const mouseOutEvent = () => {
         cursorEnlarged.current = false;
         toggleCursorSize();
+    };
+
+    const mouseOverFullscreenEvent = () => {
+        cursorFullscreen.current = true;
+        toggleFullscreen();
+    };
+
+    const mouseOutFullscreenEvent = () => {
+        cursorFullscreen.current = false;
+        toggleFullscreen();
     };
 
     const mouseEnterEvent = () => {
@@ -151,9 +176,9 @@ const Cursor = () => {
     return (
         <>
             <div ref={dotOutline}
-                className="cursor-dot-outline hide"></div>
+                className="cursor-dot-outline"></div>
             <div ref={dot}
-                className="cursor-dot hide"></div>
+                className="cursor-dot"></div>
         </>
     );
 };

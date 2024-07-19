@@ -1,8 +1,12 @@
-const Title = () => {
+interface TitleProps {
+  title: string; 
+}
+
+const Title = ({ title }: TitleProps) => {
   return (
-    <div className="w-100 flex justify-center border-b-[1px] p-8">
+    <div className="w-100 flex justify-center border-b-[1px] p-8 mb-20">
       <h5>
-        Portfolio
+        {title} 
       </h5>
     </div>
   );

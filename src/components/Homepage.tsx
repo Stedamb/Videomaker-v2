@@ -1,16 +1,28 @@
 import ContentSection from "./sections/ContentSection";
 import NavSection from "./sections/NavSection";
 
-const Homepage = () => {
-  const videoSources = ["/supernova.mp4", "/supernova.mp4", "/supernova.mp4"];
+interface HomepageProps {
+  projects: {
+    source: string;
+    title: string;
+    description: string;
+    link: string;
+    preview: string;
+  }[];
+}
 
+const Homepage: React.FC<HomepageProps> = ({ projects }) => {
   return (
     <div>
-      {videoSources.map((source, index) => (
+      {projects.map((project, index) => (
         <ContentSection
           key={index}
           isRight={index % 2 !== 0}
-          videoSrc={source}
+          source={project.source}
+          title={project.title}
+          description={project.description}
+          link={project.link}
+          preview={project.preview}
         />
       ))}
       <NavSection />

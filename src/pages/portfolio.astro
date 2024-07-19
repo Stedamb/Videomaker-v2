@@ -1,10 +1,37 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
 import Work from "../components/Work";
+
+const projects = [
+    {
+      title: "Supernova",
+      description: "Description for video 1",
+      source: "/supernova.mp4",
+      link: "/projects/supernova" ,
+      preview: "Preview for video 1",
+      date: "2018-2022"
+    },
+    {
+      title: "Video 2",
+      description: "Description for video 2",
+      source: "/supernova.mp4",
+      link: "/video2",
+      preview: "Preview for video 2",
+      date: "2018-2022"
+    },
+    {
+      title: "Video 3",
+      description: "Description for video 3",
+      source: "/supernova.mp4",
+      link: "/video3",
+      preview: "Preview for video 3",
+      date: "2018-2022"
+    }
+  ];
 ---
-<PageLayout title="work">
+<PageLayout title="Portfolio">
 	<main>
-		<Work client:visible />
+		<Work projects={projects} client:visible />
 	</main>
 </PageLayout>
 

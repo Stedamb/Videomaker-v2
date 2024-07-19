@@ -20,7 +20,7 @@ const { title } = Astro.props;
 	<body>
 		<Cursor client:only />
 		<nav><Navbar client:visible /></nav>
-		<header><Title /></header>
+		<header><Title title={title} /></header>
 		<slot />
 		<footer><Footer client:visible /></footer>
 	</body>
