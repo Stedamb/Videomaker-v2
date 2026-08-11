@@ -31,15 +31,20 @@ const MovingTextSection: React.FC = () => {
 
     let animation = createAnimation();
 
+    let resizeTimeout: ReturnType<typeof setTimeout>;
     const handleResize = () => {
-      animation.kill();
-      gsap.set($textContainer, { x: 0 });
-      animation = createAnimation();
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        animation.kill();
+        gsap.set($textContainer, { x: 0 });
+        animation = createAnimation();
+      }, 200);
     };
 
     window.addEventListener('resize', handleResize);
 
     return () => {
+      clearTimeout(resizeTimeout);
       window.removeEventListener('resize', handleResize);
       animation.kill();
     };

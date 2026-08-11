@@ -2,8 +2,8 @@ import {useEffect, useRef} from 'react';
 
 const Cursor = () => {
     const delay = 2;
-    const dot = useRef < HTMLDivElement | null > (null);
-    const dotOutline = useRef < HTMLDivElement | null > (null);
+    const dot = useRef<HTMLDivElement | null>(null);
+    const dotOutline = useRef<HTMLDivElement | null>(null);
     const cursorVisible = useRef(true);
     const cursorEnlarged = useRef(false);
     const cursorFullscreen = useRef(false);
@@ -13,7 +13,7 @@ const Cursor = () => {
     const endY = useRef(window.innerHeight / 2);
     const _x = useRef(0);
     const _y = useRef(0);
-    const requestRef = useRef < number | null > (null);
+    const requestRef = useRef<number | null>(null);
 
     useEffect(() => {
         document.addEventListener('mousedown', toggleClick);
@@ -39,17 +39,19 @@ const Cursor = () => {
         });
 
         return() => {
-            document.removeEventListener('mousedown', mouseOverEvent);
-            document.removeEventListener('mouseup', mouseOutEvent);
-            document.removeEventListener('mousemove', mouseMoveEvent);
+            document.removeEventListener('mousedown', toggleClick);
+            document.removeEventListener('mouseup', toggleClick);
+            window.removeEventListener('mousemove', mouseMoveEvent);
             document.removeEventListener('mouseenter', mouseEnterEvent);
             document.removeEventListener('mouseleave', mouseLeaveEvent);
-            document.removeEventListener('scroll', updateCursorPosition);
+            window.removeEventListener('scroll', updateCursorPosition);
 
             hoverElements.forEach((e) => {
                 e.removeEventListener('mouseover', mouseOverEvent);
                 e.removeEventListener('mouseout', mouseOutEvent);
                 e.removeEventListener('click', togglePlayPause);
+                e.removeEventListener('mouseover', mouseOverFullscreenEvent);
+                e.removeEventListener('mouseout', mouseOutFullscreenEvent);
             });
 
             if (requestRef.current) {

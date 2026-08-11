@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LazyVideo from './LazyVideo';
 
 interface ProjectProps {
   project: {
@@ -37,11 +38,7 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
             }`}
             onClick={fullscreenIndex === index ? undefined : () => handleVideoClick(index)}
           >
-            <video 
-            controls={fullscreenIndex === index} autoPlay muted loop>
-              <source src={source} type="video/mp4" />
-              Sorry, your browser doesn't support videos.
-            </video>
+            <LazyVideo src={source} controls={fullscreenIndex === index} />
             <div className={`text-background Link-Alt ${fullscreenIndex === index ? 'fixed top-10 right-10 z-50' : 'hidden'}`} onClick={() => handleVideoClick(index)}>
               Chiudi
             </div>

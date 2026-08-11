@@ -1,13 +1,7 @@
 ---
-import Loader from '../components/Loader';
-import Navbar from '../components/Navbar';
+import PageLayout from '../layouts/PageLayout.astro';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Homepage from '../components/Homepage';
-import Cursor from '../components/Cursor';
-
-import '../styles/index.css';
-import type { render } from 'astro/compiler-runtime';
 
 const projects = [
   {
@@ -33,26 +27,9 @@ const projects = [
   },
 ];
 ---
-<html lang="it">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  </head>
-  <body>
-    <Cursor client:only />
-    <Loader client:visible />
-    <nav>
-      <Navbar client:visible />
-    </nav>
-    <header>
-      <Header client:visible />
-    </header>
-    <main>
-      <Homepage projects={projects} client:visible />
-    </main>
-    <footer><Footer client:visible /></footer>
-    <script src="../scripts/loader.tsx"></script>
-  </body>
-</html>
+<PageLayout title="Home" showLoader>
+  <Header slot="header" client:visible />
+  <main>
+    <Homepage projects={projects} client:visible />
+  </main>
+</PageLayout>

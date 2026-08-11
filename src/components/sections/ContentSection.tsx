@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyVideo from '../LazyVideo';
 
 interface ContentSectionProps {
     isRight: boolean;
@@ -20,10 +21,7 @@ interface ContentSectionProps {
     return (
         <div className="ContentSection container-xl lg:pb-32">
             <div className="relative flex items-start justify-center flex-col">
-                <video className={`Video lg:w-3/4 object-cover h-full ${!isRight && 'lg:ml-auto' }`} autoPlay muted loop>
-                    <source src={source} type="video/mp4"/>
-                    Sorry, your browser doesn't support videos.
-                </video>
+                <LazyVideo className={`Video lg:w-3/4 object-cover h-full ${!isRight && 'lg:ml-auto' }`} src={source} />
                 <div className={`Staggered flex flex-col w-5/6 mx-auto lg-max:translate-y-[-50%] lg:absolute lg:w-1/3 p-4 lg:p-8 bg-background border border-text ${isRight ? 'lg:right-0' : 'lg:left-0'}`}>
                     <h4 className="">{title}</h4>
                     <p className="">{preview} </p>
