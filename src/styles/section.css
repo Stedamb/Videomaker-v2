@@ -1,4 +1,4 @@
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
     .Staggered::before {
         background: var(--background);
         border: 1px solid var(--text);
@@ -19,7 +19,7 @@
 }
 
 .ContentSection {
-    @media(min-width: 768px) {
+    @media (min-width: 768px) {
         .Video {
             z-index: -1;
         }
